@@ -5,7 +5,7 @@ import org.joda.time.LocalTime;
 public class LapModel implements Comparable<LapModel>{
     private PilotModel pilot;
     private Integer lapNumber;
-    private Double mediumVelocity;
+    private Double avarageSpeed;
     private LocalTime lapTime;
     private Boolean bestLap;
 
@@ -25,12 +25,12 @@ public class LapModel implements Comparable<LapModel>{
         this.lapNumber = lapNumber;
     }
 
-    public Double getMediumVelocity() {
-        return mediumVelocity;
+    public Double getAvarageSpeed() {
+        return avarageSpeed;
     }
 
-    public void setMediumVelocity(Double mediumVelocity) {
-        this.mediumVelocity = mediumVelocity;
+    public void setAvarageSpeed(Double avarageSpeed) {
+        this.avarageSpeed = avarageSpeed;
     }
 
     public LocalTime getLapTime() {

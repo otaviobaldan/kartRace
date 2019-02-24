@@ -4,10 +4,12 @@ import org.joda.time.LocalTime;
 
 import java.util.List;
 
+// Pilot's, used to store all the pilot information and your race stats
+// Here I implements Comparable to order the pilots according to their order of arriving
 public class PilotModel implements Comparable<PilotModel>{
     private String name;
     private String code;
-    private Double mediumRaceVelocity;
+    private Double avarageSpeed;
     private boolean isWinner = false;
     private Integer lapCount = 0;
     private LocalTime raceTime;
@@ -54,11 +56,20 @@ public class PilotModel implements Comparable<PilotModel>{
         isWinner = winner;
     }
 
+    // method used to set the winner of the race, finding it on the pilot list and setting the winner
     public static void setWinner(boolean winner, List<PilotModel> pilotModelList, PilotModel pilotModel) {
         for (PilotModel pm : pilotModelList){
             if (pm.getCode().equals(pilotModel.getCode()))
                 pm.isWinner = winner;
         }
+    }
+
+    // method used to verify if have any winner in race
+    public static boolean hasWinner(List<PilotModel> pilotModelList){
+        for (PilotModel pm : pilotModelList){
+            if (pm.isWinner()) return true;
+        }
+        return false;
     }
 
     public PilotModel(String name, String code) {
@@ -82,12 +93,12 @@ public class PilotModel implements Comparable<PilotModel>{
         this.code = code;
     }
 
-    public Double getMediumRaceVelocity() {
-        return mediumRaceVelocity;
+    public Double getAvarageSpeed() {
+        return avarageSpeed;
     }
 
-    public void setMediumRaceVelocity(Double mediumRaceVelocity) {
-        this.mediumRaceVelocity = mediumRaceVelocity;
+    public void setRaceAvarageSpeed(Double mediumRaceVelocity) {
+        this.avarageSpeed = mediumRaceVelocity;
     }
 
     @Override
