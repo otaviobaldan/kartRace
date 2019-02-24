@@ -8,6 +8,18 @@ Também iremos corrigir a formatação do documento para você, para isso separe
 
 Após colocar o arquivo na pasta correspondente, execute o programa pelo framework que achar melhor, aqui, usei o IntelliJ por questões de afinidade.
 
+Ao invés do framework, pode também compilar o projeto por linha de comando e executá-lo.
+Abra o terminal, navegando até a pasta principal do projeto e digite: 
+```sh
+$ cd kartRace
+$ mvn clean install package -DskipTests
+```
+Navegar até a pasta target que foi gerada pela compilação (kartRace/target) e executar:
+```sh
+$ cd target
+$ java -jar kartRace-0.0.1-SNAPSHOT.jar  
+```
+
 # A ordem
 ![alt text](http://i64.tinypic.com/b8aaue.jpg)
 
