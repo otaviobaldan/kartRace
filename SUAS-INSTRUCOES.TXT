@@ -1,0 +1,6 @@
+	- O projeto foi desenvolvido em Java, utilizando a IDE do IntelliJ, mas nada impede da compilação e execução do projeto via linha de comando, como orientado no ReadMe.md;
+	- Procurei deixar o código bem comentado, como se fosse um passo a passo da minha lógica, assim qualquer pessoa consegue realizar a leitura do código;
+	- Utilizei o nome das variáveis e comentários em inglês, podendo ser lido por qualquer pessoa que entenda o idioma;
+	- As impressões na tela foram em português devido aos solicitantes do teste falarem a língua;
+	- O projeto foi feito em uma única classe, mas ainda assim está limpo e coeso, caso fosse necessário adicionar mais elementos, pensaria em alguma forma de começar a realizar uma separação em mais classes;
+	- Procurei realizar os testes dos métodos que eram mais impactantes no projeto, assim garanto que qualquer mudança que não esteja de acordo com o escopo será coberta pelos testes;
