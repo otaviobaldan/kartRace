@@ -14,6 +14,7 @@ public class DateUtils {
             millis = millis + localTime.getMillisOfSecond();
             seconds = seconds + localTime.getSecondOfMinute();
             minutes = minutes + localTime.getMinuteOfHour();
+            hours = hours + localTime.getHourOfDay();
         }
 
         // if the millis are greater than 999 I need to convert to one more second

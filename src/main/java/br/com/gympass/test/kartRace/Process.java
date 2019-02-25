@@ -23,7 +23,7 @@ public class Process {
     // variable used to get the best lap of the race
     static LocalTime bestRaceLap;
 
-    public static void Process(String filename) {
+    public static void Process(String filename) throws FileNotFoundException {
         // the model that I'll use to put the pilot
         List<PilotModel> pilotModelList = new ArrayList<>();
         // the model that I'll use to put the laps of one pilot
@@ -109,12 +109,13 @@ public class Process {
             }
         } else {
             System.out.println("Arquivo não encontrado");
+            throw new FileNotFoundException("File not found");
         }
 
     }
 
     // Method used to set Pilot Name and Number
-    private static void setPilotInformation(String data, LapModel lapModel, List<PilotModel> pilotModelList) {
+    public static void setPilotInformation(String data, LapModel lapModel, List<PilotModel> pilotModelList) {
         // Use the substring to take the pilot number on first 3 positions ...
         String pilotNumber = data.substring(0, 3).trim();
         // ... and to take the Pilot name after the "-" char
@@ -143,7 +144,7 @@ public class Process {
     }
 
     // oraganizeRanking is a method that will sort the pilots and laps
-    private static void oraganizeRanking(List<PilotModel> pilotModelList, List<LapModel> lapModelList){
+    public static void oraganizeRanking(List<PilotModel> pilotModelList, List<LapModel> lapModelList){
         // Run through all pillots
         for (PilotModel pm : pilotModelList){
             // filter the laps of this pilot and set some informations like best lap, medium velocity
@@ -183,7 +184,7 @@ public class Process {
             }
         }
         // after all the laps covered, I use the size of new lapList to know what is the pilot avarage speed
-        raceAvarageSpeed = raceAvarageSpeed / returnLapModel.size();
+        raceAvarageSpeed = raceAvarageSpeed / (returnLapModel.size() == 0 ? 1 : returnLapModel.size());
         pilotModel.setRaceAvarageSpeed(raceAvarageSpeed);
         // I use the method getRaceTime to know what is the pilot race time
         pilotModel.setRaceTime(getRaceTime(returnLapModel));
@@ -193,7 +194,7 @@ public class Process {
     }
 
     // In this method I'l manipulate the time, to sum all the lap times
-    private static LocalTime getRaceTime(List<LapModel> lapModelList){
+    public static LocalTime getRaceTime(List<LapModel> lapModelList){
         // create a list of LocalTime to calculate the total race time
         List<LocalTime> localTimeList = new ArrayList<>();
         lapModelList.forEach(lapModel -> localTimeList.add(lapModel.getLapTime()));
@@ -202,7 +203,7 @@ public class Process {
 
     // calculateTimeAfterWinner, like the name says, calculate the time that one pilot arrived in the end of the race
     //   after the first pilot
-    private static void calculateTimeAfterWinner(List<PilotModel> pilotModelList){
+    public static void calculateTimeAfterWinner(List<PilotModel> pilotModelList){
         // As the pilot list is already sorted, I take the first element on it and yout race time
         LocalTime winnerTime = pilotModelList.get(0).getRaceTime();
 
