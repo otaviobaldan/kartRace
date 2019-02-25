@@ -37,7 +37,7 @@ public class ProcessTest {
         String data = "038 – F.MASSA";
         Process.setPilotInformation(data, new LapModel(), pilotModelList);
 
-        assertTrue(pilotModelList.size() == 2);
+        assertTrue(pilotModelList.size() == 3);
     }
 
     @Test
@@ -129,7 +129,6 @@ public class ProcessTest {
     private List<PilotModel> mock1Pilot() {
         List<PilotModel> pilotModelList = new ArrayList<>();
         pilotModelList.add(new PilotModel("M.WEBBER", "023"));
-        pilotModelList.add(new PilotModel("F.ALONSO", "015"));
 
         return pilotModelList;
     }
